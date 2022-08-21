@@ -34,9 +34,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
 @CrossOrigin
 @Validated
+@RequestMapping("/auth")
 public class AuthControler {
    @Autowired
    PasswordEncoder passwordEncoder;
@@ -50,6 +50,7 @@ public class AuthControler {
    @Autowired
    JwtProviders jwtProviders;
    
+   @CrossOrigin
    @PostMapping("/nuevo")
        public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario,
                BindingResult bindingResult){
@@ -78,6 +79,7 @@ public class AuthControler {
         }
        
        
+       @CrossOrigin
        @PostMapping("/login")
        @Validated
        public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult)

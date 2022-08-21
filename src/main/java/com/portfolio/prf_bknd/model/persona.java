@@ -25,14 +25,25 @@ public class persona {
     private Long id;
     private String nombre;
     private String apellido;
+    private String titulo;
     
     public persona(){
     }
     
-    public persona(Long id, String nombre, String apellido){
+    public persona(Long id, String nombre, String apellido, String titulo){
     this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
+    this.titulo= titulo;
+    
+   }
+
+    public persona(String nombre, String apellido, String titulo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.titulo = titulo;
     }
+    
+    
     
 }

@@ -31,7 +31,11 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public persona buscarPersona(Long id) {
-        return persoRepo.findById(id).orElse(null); 
+        return persoRepo.findById(id)
+                .orElse(null); 
     }
+
     
-}
+        }
+    
+
