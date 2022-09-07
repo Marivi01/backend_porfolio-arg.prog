@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.portfolio.prf_bknd.model;
 
 import javax.persistence.Entity;
@@ -12,16 +9,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-/**
- *
- * @author Usuario
- */
+
 @Getter @Setter
 @Entity
 public class persona {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private String apellido;

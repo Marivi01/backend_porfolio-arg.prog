@@ -9,6 +9,6 @@ package com.portfolio.prf_bknd.security.Enum;
  * @author Usuario
  */
 public enum RolNombre {
-    ROLE_ADMIN,ROLE_USER
+    ROLE_ADMIN, ROLE_USER
     
 }

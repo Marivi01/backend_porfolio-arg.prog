@@ -16,16 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.portfolio.prf_bknd.security.DTO.JwtDto;
-import com.portfolio.prf_bknd.security.DTO.LoginUsuario;
-import com.portfolio.prf_bknd.security.DTO.NuevoUsuario;
-import com.portfolio.prf_bknd.security.Entity.Rol;
-import com.portfolio.prf_bknd.security.Entity.Usuario;
-import com.portfolio.prf_bknd.security.Enum.RolNombre;
-import com.portfolio.prf_bknd.security.Service.RolService;
-import com.portfolio.prf_bknd.security.Service.UsuarioService;
-import com.portfolio.prf_bknd.security.jwt.JwtProviders;
+//
+//import com.portfolio.prf_bknd.security.DTO.JwtDto;
+//import com.portfolio.prf_bknd.security.DTO.LoginUsuario;
+//import com.portfolio.prf_bknd.security.DTO.NuevoUsuario;
+//import com.portfolio.prf_bknd.security.Entity.Rol;
+//import com.portfolio.prf_bknd.security.Entity.Usuario;
+//import com.portfolio.prf_bknd.security.Enum.RolNombre;
+//import com.portfolio.prf_bknd.security.Service.RolService;
+//import com.portfolio.prf_bknd.security.Service.UsuarioService;
+//import com.portfolio.prf_bknd.security.jwt.JwtProviders;
 
 
 
@@ -38,7 +38,7 @@ public class controler {
     private IPersonaService persoServ;
     
     
-    @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/new/persona")
     public void agregarPersona(@RequestBody persona pers){
     persoServ.crearPersona(pers);
@@ -52,7 +52,7 @@ public class controler {
     }
     
     @CrossOrigin
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public void borrarPersona (@PathVariable Long id){
     persoServ.borrarPersona(id);
