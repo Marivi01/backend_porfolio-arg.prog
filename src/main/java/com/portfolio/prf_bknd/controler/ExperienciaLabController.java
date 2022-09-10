@@ -35,12 +35,12 @@ public class ExperienciaLabController {
 
     @PostMapping("/crear")
     public ResponseEntity<?> create(@RequestBody DtoExperienciaLab dtoexp) {
-        if (StringUtils.isBlank(dtoexp.getNombreExp())) {
+        if (StringUtils.isBlank(dtoexp.getNombreExp())) 
             return new ResponseEntity(new Mensaje("Campo obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (experienciaService.existByNombreExp(dtoexp.getNombreExp())) {
+        
+        if (experienciaService.existByNombreExp(dtoexp.getNombreExp())) 
             return new ResponseEntity(new Mensaje("Experiencia existente"), HttpStatus.BAD_REQUEST);
-        }
+        
 
         ExperienciaLab experienciaLab = new ExperienciaLab(dtoexp.getNombreExp(), dtoexp.getDescripcionExp());
         experienciaService.save(experienciaLab);
@@ -52,16 +52,16 @@ public class ExperienciaLabController {
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperienciaLab dtoexp) {
 
         if (!experienciaService
-                .existById(id)) {
+                .existById(id)) 
             return new ResponseEntity(new Mensaje("no existe el id"), HttpStatus.BAD_REQUEST);
-        }
+        
 
-        if (!experienciaService.existByNombreExp(dtoexp.getNombreExp()) && experienciaService.getByNombreExp(dtoexp.getNombreExp()).get().getId() != id) {
+        if (experienciaService.existByNombreExp(dtoexp.getNombreExp()) && experienciaService.getByNombreExp(dtoexp.getNombreExp()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("experiencia ya existente"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtoexp.getNombreExp())) {
+        
+        if (StringUtils.isBlank(dtoexp.getNombreExp())) 
             return new ResponseEntity(new Mensaje("Campo obligarorio"), HttpStatus.BAD_REQUEST);
-        }
+        
         ExperienciaLab experienciaLab = experienciaService.getOne(id).get();
         experienciaLab.setNombreExp(dtoexp.getNombreExp());
         experienciaLab.setDescripcionExp((dtoexp.getDescripcionExp()));
